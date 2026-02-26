@@ -394,16 +394,16 @@ const AtsHome = () => {
     formData.append('jobDescription', jobDescription);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/analyze-resume', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-      setResult(response.data);
-    } catch (err) {
-      setError(err.response?.data?.error || 'Error analyzing resume. Please try again.');
-      console.error('Error:', err);
-    } finally {
+  const response = await axios.post('https://ats-cheker.onrender.com/api/analyze-resume', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+  setResult(response.data);
+} catch (err) {
+  setError(err.response?.data?.error || 'Error analyzing resume. Please try again.');
+  console.error('Error:', err);
+} finally {
       setLoading(false);
     }
   };
