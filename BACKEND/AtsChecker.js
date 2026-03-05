@@ -8,7 +8,7 @@ const extractTextFromFile = (file) => {
   return file.buffer.toString('utf-8');
 };
 
-// Main ATS analysis function
+
 const analyzeResumeWithATS = async (file, jobDescription = '') => {
   try {
     // Extract text from file
@@ -17,7 +17,7 @@ const analyzeResumeWithATS = async (file, jobDescription = '') => {
     // Initialize the model
     const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
-    // Create prompt for ATS score analysis
+    // Prompt jo ATS score batata hai 
     const prompt = `
     You are an expert ATS (Applicant Tracking System) analyzer. Analyze the following resume and provide:
     1. An ATS score out of 100
@@ -41,7 +41,7 @@ const analyzeResumeWithATS = async (file, jobDescription = '') => {
     }
     `;
 
-    // Generate content
+    //content gen
     const result = await model.generateContent(prompt);
     const response = await result.response;
     const text = response.text();
