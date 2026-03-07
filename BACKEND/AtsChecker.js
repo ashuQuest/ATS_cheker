@@ -46,7 +46,7 @@ const analyzeResumeWithATS = async (file, jobDescription = '') => {
     const response = await result.response;
     const text = response.text();
     
-    // Parse the JSON response
+    // Parse the JSON
     let analysisResult;
     try {
       // Remove any markdown formatting if present
